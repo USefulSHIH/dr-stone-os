@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+﻿#!/usr/bin/env bash
 # shellcheck disable=SC2034
 
 iso_name="drstone-os"
@@ -8,7 +8,7 @@ iso_application="Dr Stone OS Live/Install ISO"
 iso_version="2026.05.20"
 install_dir="arch"
 buildmodes=("iso")
-bootmodes=("bios.syslinux" "uefi.grub.esp" "uefi.grub.eltorito")
+bootmodes=("bios.syslinux" "uefi.grub")
 arch="x86_64"
 pacman_conf="pacman.conf"
 airootfs_image_type="squashfs"
@@ -20,3 +20,4 @@ file_permissions=(
   ["/root"]="0:0:750"
   ["/usr/local/bin/drstone-menu"]="0:0:755"
 )
+
