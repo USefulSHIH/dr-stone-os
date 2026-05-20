@@ -1,2 +1,2 @@
-﻿# Dr Stone OS
+# Dr Stone OS
 Galaxy-themed Arch Linux ISO.
