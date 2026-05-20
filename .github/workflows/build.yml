@@ -1,0 +1,30 @@
+﻿name: Build Dr Stone OS ISO
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux:latest
+      options: --privileged
+    steps:
+      - name: Install dependencies
+        run: |
+          pacman -Syu --noconfirm archiso git
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build ISO
+        run: |
+          mkdir -p out work
+          mkarchiso -v -w work -o out .
+
+      - name: Upload ISO
+        uses: actions/upload-artifact@v4
+        with:
+          name: drstone-os-iso
+          path: out/*.iso
